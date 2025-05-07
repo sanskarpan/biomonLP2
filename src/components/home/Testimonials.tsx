@@ -6,8 +6,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import { motion } from 'framer-motion';
 import { QuoteIcon } from 'lucide-react';
@@ -41,7 +39,7 @@ const Testimonials = () => {
         
         <Carousel
           className="w-full max-w-4xl mx-auto"
-          onSelect={(index) => setCurrentIndex(index)}
+          onSelect={(index: number) => setCurrentIndex(index)}
         >
           <CarouselContent>
             {TESTIMONIALS.map((testimonial) => (

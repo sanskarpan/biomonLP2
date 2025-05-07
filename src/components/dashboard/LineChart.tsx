@@ -1,7 +1,6 @@
 import { useId } from 'react';
 import {
   CartesianGrid,
-  Legend,
   Line,
   LineChart as RechartsLineChart,
   ResponsiveContainer,

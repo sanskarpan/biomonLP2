@@ -82,7 +82,7 @@ const HowItWorks = () => {
           {/* Timeline connector */}
           <div className="absolute left-8 top-10 bottom-10 w-1 bg-gradient-to-b from-primary via-orange-500 to-pink-500 rounded-full hidden md:block"></div>
           
-          {TIMELINE_STEPS.map((step, index) => (
+          {TIMELINE_STEPS.map((step) => (
             <motion.div 
               key={step.id} 
               className="mb-12 last:mb-0"

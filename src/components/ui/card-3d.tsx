@@ -18,9 +18,6 @@ export function Card3D({
   const [mouseEnter, setMouseEnter] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   
-  // Track mouse position
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
   // Setup spring animation for smoother movement
   const springConfig = { damping: 25, stiffness: 300 };
   const rotateX = useSpring(0, springConfig);
@@ -39,8 +36,6 @@ export function Card3D({
     // Calculate normalized position (-1 to 1)
     const x = (e.clientX - centerX) / (rect.width / 2);
     const y = (centerY - e.clientY) / (rect.height / 2);
-    
-    setMousePosition({ x, y });
     
     // Update rotation values
     rotateX.set(y * depth);

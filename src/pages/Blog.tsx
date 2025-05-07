@@ -3,7 +3,6 @@ import { BLOG_POSTS } from '@/lib/constants';
 import BlogCard from '@/components/blog/BlogCard';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 

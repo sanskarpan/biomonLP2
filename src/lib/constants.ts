@@ -1,17 +1,4 @@
-import { 
-  Activity, 
-  AlertTriangle, 
-  ArrowUpRight, 
-  Brain, 
-  Database, 
-  LineChart, 
-  Lock, 
-  MessageSquare, 
-  Smartphone, 
-  UserPlus 
-} from 'lucide-react';
-
-import type { BlogPostType, FAQItemType, FeatureType, HealthMetricType, TestimonialType, TimelineStepType } from './types';
+import type { BlogPostType, FAQItemType, FeatureType, HealthMetricType, TestimonialType, TimelineStepType, ChartDataPoint } from './types';
 
 export const SITE_CONFIG = {
   name: 'Biomon',
@@ -32,7 +19,7 @@ export const SITE_CONFIG = {
 export const FEATURES: FeatureType[] = [
   {
     id: 1,
-    title: '360° Health Dashboard',
+    title: 'Smart Insights',
     description: 'Visualize all your health metrics in one unified interface that highlights what matters.',
     icon: 'Activity',
   },

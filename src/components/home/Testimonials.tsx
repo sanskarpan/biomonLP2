@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TESTIMONIALS } from '@/lib/constants';
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -12,6 +12,21 @@ import { QuoteIcon } from 'lucide-react';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = useState<any>(null);
+
+  // Update the current index when the carousel changes
+  useEffect(() => {
+    if (!api) return;
+    
+    const onSelect = () => {
+      setCurrentIndex(api.selectedScrollSnap());
+    };
+    
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
 
   return (
     <section className="py-20 bg-muted/30">
@@ -39,7 +54,7 @@ const Testimonials = () => {
         
         <Carousel
           className="w-full max-w-4xl mx-auto"
-          onSelect={(index: number) => setCurrentIndex(index)}
+          setApi={setApi}
         >
           <CarouselContent>
             {TESTIMONIALS.map((testimonial) => (
@@ -71,7 +86,7 @@ const Testimonials = () => {
             {TESTIMONIALS.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => api?.scrollTo(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
                   currentIndex === index 
                     ? 'bg-primary w-6' 
